@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://mrdigs.github.io/threedom.css">
+    <style media="screen">
+      #playing-card > *:nth-child(1) {
+        background: url(https://upload.wikimedia.org/wikipedia/commons/a/ab/01_of_spades_A.svg);
+        background-size: cover;
+        border-radius: 5px;
+      }
+      #playing-card > *:nth-child(2) {
+        background: url(https://upload.wikimedia.org/wikipedia/commons/d/d4/Card_back_01.svg);
+        background-size: cover;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <figure class="three-d space">
+      <figure class="three-d spinning object" style="width:200px;height:290px">
+        <div style="background: red">Front</div>
+        <div style="background: blue">Back</div>
+      </figure>
+    </figure>
+    <figure class="three-d space">
+      <figure id="playing-card" class="three-d spinning object" style="width:200px;height:291px">
+        <div></div>
+        <div></div>
+      </figure>
+    </figure>
+    <figure class="three-d space">
+      <figure class="three-d spinning object" style="width:200px;height:200px">
+        <div style="background: red"></div>
+        <div style="background: blue"></div>
+        <div style="background: green"></div>
+      </figure>
+    </figure>
+  </body>
+</html>

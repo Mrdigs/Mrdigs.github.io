@@ -14,6 +14,9 @@
   --x-rotation: 0;
   --y-rotation: 0;
   --z-rotation: 0;
+  --x2-rotation: 0;
+  --y2-rotation: 0;
+  --z2-rotation: 0;
   --x-translation: 0;
   --y-translation: 0;
   --z-translation: 0;
@@ -24,6 +27,9 @@
   --x-rotation: 0;
   --y-rotation: 0;
   --z-rotation: 0;
+  --x2-rotation: 0;
+  --y2-rotation: 0;
+  --z2-rotation: 0;
   --x-translation: 0;
   --y-translation: 0;
   --z-translation: 0;
@@ -115,6 +121,9 @@ figure.three-d {
     rotateX(var(--x-rotation))
     rotateY(var(--y-rotation))
     rotateZ(var(--z-rotation))
+    rotateX(var(--x2-rotation))
+    rotateY(var(--y2-rotation))
+    rotateZ(var(--z2-rotation))
     translateX(var(--x-translation))
     translateY(var(--y-translation))
     translateZ(var(--z-translation));
@@ -171,6 +180,76 @@ figure.three-d {
   /* the 2nd face */
   --y-rotation: 180deg;
 }
+
+/* four faces */
+
+/*
+  front, top, right, back, bottom, left
+*/
+
+.three-d.object > *:nth-child(1):nth-last-child(4) {
+  /* the 1st face */
+  --angle: 60;
+  height: calc(var(--height) * var(--sin));
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  transform-origin: 0 0;
+  --x-rotation: 19.5deg;
+  /*
+  --z-translation: -62px;
+  */
+}
+
+.three-d.object > *:nth-child(2):nth-last-child(3) {
+  /* the 2nd face */
+  --angle: 60;
+  height: calc(var(--height) * var(--sin));
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  transform-origin: 100% 0;
+  --x2-rotation: 19.5deg;
+  --y-rotation: 120deg;
+  /*
+  --z-translation: -62px;
+  --x-translation: 200px;
+  */
+  --z-translation: -82px;
+  --x-translation: 149px;
+  --y-translation: -29px;
+}
+
+.three-d.object > *:nth-child(3):nth-last-child(2) {
+  /* the 3rd face */
+  --angle: 60;
+  height: calc(var(--height) * var(--sin));
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  transform-origin: 0 100%;
+  --x-rotation: 90deg;
+  --z-translation: 11px;
+  --y-rotation: 180deg;
+  /*
+  --x-translation: -200px;
+  */
+  --x-translation: -200px;
+  --z-translation: -10px;
+  --y-translation: 58px;
+}
+
+.three-d.object > *:nth-child(4):nth-last-child(1) {
+  /* the 4th face */
+  --angle: 60;
+  height: calc(var(--height) * var(--sin));
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  transform-origin: 0 0;
+  --x2-rotation: 19.5deg;
+  --y-rotation: -120deg;
+  /*
+  --z-translation: -62px;
+  --x-translation: -200px
+  */
+  --z-translation: -82px;
+  --x-translation: -149px;
+  --y-translation: -29px;
+}
+
 
 /* six faces */
 
