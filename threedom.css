@@ -1,4 +1,11 @@
 /*
+ * Copyright (c) 2020 Darren Scott - All Rights Reserved
+ *
+ * This program is distributed under GPL Version 3 in the hope that
+ * it will be useful, but WITHOUT ANY WARRANTY.
+ */
+
+/*
   top, right, bottom, left is the css standard
   so for planes, I recommend front, top, right, back, bottom, left
 */
@@ -27,8 +34,7 @@
 
   /* https://gist.github.com/stereokai/7666bfe93929b14c2dced148c79e0e97 */
 
-  --angle: 60;
-
+  --angle: 0;
   --pi: 3.141592653589793238;
   --rad: calc(var(--angle) * var(--pi) / 180);
 
@@ -59,7 +65,7 @@
   width: var(--width);
   height: var(--height);
   /* transform-style: preserve-3d; */
-  margin: auto;
+  /* margin: auto; */
 }
 
 .three-d.outlined, .three-d.outlined .three-d, .three-d.outlined .three-d.object > *, .three-d.outlined.object > * {
@@ -68,7 +74,24 @@
 
 .three-d.space {
   perspective: 200vmax;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.three-d.private.space {
   overflow: hidden;
+}
+
+.three-d.inline.space {
+  display: inline-flex;
+}
+
+figure.three-d {
+    margin-block-start: initial;
+    margin-block-end: initial;
+    margin-inline-start: initial;
+    margin-inline-end: initial;
 }
 
 .three-d.space * {
@@ -80,10 +103,13 @@
 }
 
 .three-d.object, .three-d.carousel {
-    position: relative;
+    /* position: relative; */
 }
 
 .three-d.object > *, .three-d.carousel > *, .three-d.wheel > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   transform:
     rotateX(var(--x-rotation))
@@ -191,7 +217,7 @@
 /* ===== */
 
 .three-d.wheel {
-  --tan: 0;
+  /* --tan: 0; */
   --wheel-angle: 0deg;
 }
 
@@ -299,7 +325,7 @@
 /* ======== */
 
 .three-d.carousel {
-  --tan: 0;
+  /* --tan: 0; */
   --carousel-angle: 0deg;
 }
 
