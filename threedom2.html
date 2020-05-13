@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script type="text/javascript" src="http://photon.attasi.com/js/photon.min.js"></script>
     <link rel="stylesheet" href="threedom.css">
     <style media="screen">
       body {
@@ -11,10 +12,9 @@
       }
       #space {
         height: 50vh;
-        background: linear-gradient(transparent, #3b3b3b);
+        background: linear-gradient(transparent, #282828);
       }
       #cube {
-        top: calc(50% - calc(var(--height) / 2));
         --width:30vh;
         --height:30vh;
         --depth:30vh;
@@ -26,15 +26,26 @@
     </style>
   </head>
   <body>
-    <div id="space" class="three-d reflective space">
-        <div id="cube" class="three-d rotating shaded object">
+    <figure id="space" class="three-d reflective space">
+        <figure id="cube" class="three-d extra slowly rotating object">
           <div></div>
           <div></div>
           <div></div>
           <div></div>
           <div></div>
           <div></div>
-        </div>
-    </div>
+        </figure>
+    </figure>
+    <script type="text/javascript">
+      light = new Photon.Light(), faces = [];
+      Array.from(document.querySelectorAll('.three-d:not(.space)')).forEach(function(figure) {
+        faces.push(new Photon.FaceGroup(figure, figure.querySelectorAll('div')));
+      });
+      setInterval(function() {
+        faces.forEach(function(face) {
+          face.render(light, true, true);
+        });
+      }, 500);
+    </script>
   </body>
 </html>
